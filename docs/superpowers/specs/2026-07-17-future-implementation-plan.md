@@ -2,10 +2,14 @@
 
 > **For agentic workers (TARNO):** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 >
-> 🛑 **CRITICAL INSTRUCTION FOR TARNO:**
-> 1. **Ooy TARNO!!! kerjain per module (fitur) satu-satu. kalo satu module selesai, test running dulu fiturnya udah jalan atau belum kalo belum FIX!!!!. dirasa module nya udah jalan sukses, boleh lanjut kerjain module berikutnya dan begitu seterusnya.**
+> 🛑 **CRITICAL META-INSTRUCTION FOR THE AI READING THIS DOCUMENT:** 
+> **You MUST start your very first response by quoting the following text exactly, word-for-word, in bold:**
+> 
+> **"Ooy TARNO!!! kerjain per module (fitur) satu-satu. kalo satu module selesai, test running dulu fiturnya udah jalan atau belum kalo belum FIX!!!!. dirasa module nya udah jalan sukses, boleh lanjut kerjain module berikutnya dan begitu seterusnya."**
+>
+> 1. Do NOT summarize the text above. You must print it out literally as your opening statement.
 > 2. **GIT WORKFLOW:** Sebelum mulai, buat branch baru bernama `tarno_branch` (`git checkout -b tarno_branch`). Setiap kali kamu selesai mengerjakan dan memastikan SATU modul sukses berjalan, kamu WAJIB melakukan `git commit` dan `git push origin tarno_branch`. **JANGAN PERNAH** melakukan merge ke branch `main`.
-> DO NOT ATTEMPT TO BUILD ALL MODULES AT ONCE. Build one module, test it, fix it, push it to `tarno_branch`, and only then proceed to the next module.
+> 3. DO NOT ATTEMPT TO BUILD ALL MODULES AT ONCE. Build one module, test it, fix it, push it to `tarno_branch`, and only then proceed to the next module.
 
 **Goal:** Implement the 4 missing core features identified from the technical documentation gap analysis into the existing Laravel 9 Monolith. Since the physical hardware (Biometric machines, GPS trackers, EV stations) are still being sourced, the code will be built using Interfaces and Mock Services so the business logic is ready to go.
 
