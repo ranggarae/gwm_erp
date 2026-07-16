@@ -498,6 +498,28 @@
 
                     <!--------------------- End HRM ----------------------------------->
 
+                    <!--------------------- Start Fleet ----------------------------------->
+                    <li class="dash-item dash-hasmenu {{ (Request::segment(1) == 'fleets' || Request::segment(1) == 'drivers' || Request::segment(1) == 'trips' || Request::segment(1) == 'fleet-expenses')?' active dash-trigger':''}}">
+                        <a href="#!" class="dash-link"><span class="dash-micon"><i class="ti ti-car"></i></span><span class="dash-mtext">{{__('Fleet Management')}}
+                            </span><span class="dash-arrow"><i data-feather="chevron-right"></i></span>
+                        </a>
+                        <ul class="dash-submenu">
+                            <li class="dash-item {{ (Request::segment(1) == 'fleets')?'active':''}}">
+                                <a class="dash-link" href="{{route('fleets.index')}}">{{__('Fleets')}}</a>
+                            </li>
+                            <li class="dash-item {{ (Request::segment(1) == 'drivers')?'active':''}}">
+                                <a class="dash-link" href="{{route('drivers.index')}}">{{__('Drivers')}}</a>
+                            </li>
+                            <li class="dash-item {{ (Request::segment(1) == 'trips')?'active':''}}">
+                                <a class="dash-link" href="{{route('trips.index')}}">{{__('Trips')}}</a>
+                            </li>
+                            <li class="dash-item {{ (Request::segment(1) == 'fleet-expenses')?'active':''}}">
+                                <a class="dash-link" href="{{route('fleet-expenses.index')}}">{{__('Expenses')}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--------------------- End Fleet ----------------------------------->
+
                     <!--------------------- Start Account ----------------------------------->
 
                     @if(\Auth::user()->show_account() == 1)
