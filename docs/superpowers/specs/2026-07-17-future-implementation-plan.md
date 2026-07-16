@@ -86,3 +86,30 @@
 
 > [!NOTE]
 > The plan is now adapted to use **Mock Services & Interfaces**. We can proceed with writing the code immediately. When the actual devices arrive, the developer only needs to swap the Mock service bindings in the `AppServiceProvider` with the real Hardware Service bindings. No controller or view changes will be required.
+
+---
+
+## Low-RAM Environment Setup (For AI Agent)
+
+> [!TIP]
+> **For the AI Agent:** If the host machine has low RAM and cannot run Docker/Sail or heavy MySQL containers, execute the following steps to switch to a lightweight SQLite local environment.
+
+### 1. Database Configuration
+Run these commands to create an SQLite database and update the `.env` file:
+```bash
+touch database/database.sqlite
+sed -i '' 's/DB_CONNECTION=mysql/DB_CONNECTION=sqlite/g' .env
+sed -i '' 's/DB_HOST=127.0.0.1/#DB_HOST=127.0.0.1/g' .env
+sed -i '' 's/DB_PORT=3306/#DB_PORT=3306/g' .env
+sed -i '' 's/DB_DATABASE=gitawaha_erp/#DB_DATABASE=gitawaha_erp/g' .env
+sed -i '' 's/DB_USERNAME=gitawaha_erp/#DB_USERNAME=gitawaha_erp/g' .env
+sed -i '' 's/DB_PASSWORD=/#DB_PASSWORD=/g' .env
+```
+
+### 2. Run Migrations & Server
+Execute migrations against the SQLite database and start the native PHP server:
+```bash
+php artisan migrate:fresh --seed
+php artisan serve
+```
+*The app will now run on `http://127.0.0.1:8000` consuming minimal RAM.*
