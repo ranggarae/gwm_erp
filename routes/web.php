@@ -1592,5 +1592,11 @@ Route::any('/cookie-consent', [SystemController::class,'CookieConsent'])->name('
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('fleets', App\Http\Controllers\FleetController::class);
     Route::resource('drivers', App\Http\Controllers\DriverController::class);
+
+    // Trips & Expenses Routes
+    Route::resource('trips', App\Http\Controllers\TripController::class);
+    Route::resource('fleet-expenses', App\Http\Controllers\FleetExpenseController::class);
+    Route::post('fleet-expenses/{id}/approve', [App\Http\Controllers\FleetExpenseController::class, 'approve'])->name('fleet-expenses.approve');
+    Route::post('fleet-expenses/{id}/post', [App\Http\Controllers\FleetExpenseController::class, 'postToFinance'])->name('fleet-expenses.post');
 });
 
