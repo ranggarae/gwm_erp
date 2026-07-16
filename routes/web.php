@@ -1588,3 +1588,9 @@ Route::group(['middleware' => ['verified']], function () {
 
 Route::any('/cookie-consent', [SystemController::class,'CookieConsent'])->name('cookie-consent');
 
+// Fleet Management Routes
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('fleets', App\Http\Controllers\FleetController::class);
+    Route::resource('drivers', App\Http\Controllers\DriverController::class);
+});
+
